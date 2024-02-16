@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Traveler</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="m-0 p-0">
+    <nav class="flex justify-around items-center bg-gray-300">
+        <div>
+            <img class="w-24" src="./images/logo.png" alt="" />
+        </div>
+        <div class="flex items-center">
+            <div class="absolute">
+                <img class="absolute left-2 top-4" src="./images/cart.png" alt="" />
+                <h2 id="cart-count" class="relative text-red-600 text-xl font-semibold">0</h2>
+            </div>
+            <div class="flex gap-5 items-center mx-6 list-none w-60 justify-around">
+                <li>Home</li>
+                <li>Setting</li>
+            </div>
+            <img class="w-12 h-12 border border-gray-400 rounded-full p-1" src="./images/man.png" alt="" />
+        </div>
+    </nav>
+    <main>
+        <!-- banner section -->
+        <section class="flex flex-col md:flex-row items-center justify-between ml-20">
+            <div class="w-1/2">
+                <h1 class="text-6xl mb-3 font-bold">Lets Travel</h1>
+                <p class="text-justify">Choosing a good travel website depends on your specific needs and interests.
+                    Remember to check multiple sources and compare prices to ensure you're getting the best deals.</p>
+                <h1 class="text-3xl font-semibold mt-3">Total Budget: <span id="budget">900</span> $</h1>
+            </div>
+            <div class="w-1/2">
+                <img class="w-100%" src="./images/banner.png" alt="" />
+            </div>
+        </section>
+        <hr>
+        <!-- main content area -->
+        <div class="category"></div>
+        <section class="flex justify-center mb-10">
+            <!-- left side -->
+            <div class="flex flex-wrap gap-10 ml-10 w-3/5">
+                <!-- ist place -->
+                <div class="card card-side bg-gray-100 shadow-xl">
+                    <figure><img class="w-60 p-1 rounded-lg" src="./images/shajek.jpg" alt="Movie" /></figure>
+                    <div class="card-body">
+                        <h2 class="card-title">Shajek</h2>
+                        <p>Cost: <span class="price">300</span> $</p>
+                        <div class="card-actions ">
+                            <button class="btn btn-primary">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- 2nd place -->
+                <div class="card card-side bg-gray-100 shadow-xl">
+                    <figure><img class="w-60 p-1 rounded-lg" src="./images/Dhaka.jpg" alt="Movie" /></figure>
+                    <div class="card-body">
+                        <h2 class="card-title">Dhaka</h2>
+                        <p>Cost: <span class="price">300</span> $</p>
+                        <div class="card-actions ">
+                            <button class="btn btn-primary">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- 3rd place -->
+                <div class="card card-side bg-gray-100 shadow-xl">
+                    <figure><img class="w-60 p-1 rounded-lg" src="./images/coxBazar.jpg" alt="Movie" /></figure>
+                    <div class="card-body">
+                        <h2 class="card-title">Cox-ex-Bazar</h2>
+                        <p>Cost: <span class="price">400</span> $</p>
+                        <div class="card-actions ">
+                            <button class="btn btn-primary">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- 4th place -->
+                <div class="card card-side bg-gray-100 shadow-xl">
+                    <figure><img class="w-60 p-1 rounded-lg" src="./images/shundar-ban.jpg" alt="Movie" /></figure>
+                    <div class="card-body">
+                        <h2 class="card-title">Shundar-ban</h2>
+                        <p>Cost: <span class="price">500</span> $</p>
+                        <div class="card-actions ">
+                            <button class="btn btn-primary">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- right side -->
+            <div id="cart-container" class="w-2/5 mr-10 text-center">
+                <h1 class="text-3xl font-semibold my-2">Cart Section:</h1>
+                <hr />
+                <ul id="selected-place-container" class="selected-place-container text-justify ml-60 text-xl"></ul>
+                <hr />
+                <div class="calculation-area">
+                    <h4 class="text-3xl font-semibold my-2">Total cost: <span id="total-cost">0</span> $</h4>
+                </div>
+                <div class="p-3 my-2 space-x-4">
+                    <button onclick="grandTotal('bus')" class="category bg-orange-400 p-2 rounded">
+                        Bus +100
+                    </button>
+                    <button onclick="grandTotal('train')" class="category bg-orange-400 p-2 rounded">
+                        Train -200
+                    </button>
+                    <button onclick="grandTotal('flight')" class="category bg-orange-400 p-2 rounded">
+                        Flight +500
+                    </button>
+                </div>
+                <hr />
+                <hr />
+                <h4 class="text-3xl font-semibold my-2">Grand Total : <span id="grand-total">0</span> $</h4>
+            </div>
+            <hr>
+        </section>
+    </main>
+    <!-- script file  -->
+    <script src="./index.js"></script>
+    <script src="./function.js"></script>
+</body>
+
+</html>
