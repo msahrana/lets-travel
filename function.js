@@ -11,6 +11,14 @@ for (const btn of allBtn) {
     const selectedPlaces = document.getElementById("selected-place-container");
     const p = document.createElement("p");
     p.innerText = `${titleCount}. ${placeName}: ${price} $`;
+    const budgetStr = document.getElementById("budget").innerText;
+    const budgetNumber = parseFloat(budgetStr);
+    if (budgetNumber - parseFloat(price) < 0) {
+      alert("No budget, earn more!!!");
+      return;
+    }
+    document.getElementById("budget").innerText =
+      budgetNumber - parseFloat(price);
     selectedPlaces.appendChild(p);
     titleCount++;
     totalPrice("total-cost", parseFloat(price));
@@ -20,15 +28,24 @@ for (const btn of allBtn) {
 }
 
 function totalPrice(id, value) {
-  const totalCost = parseFloat(document.getElementById(id).innerText);
-  const sum = totalCost + parseFloat(value);
+  const totalCostStr = document.getElementById(id).innerText;
+  const totalCostNumber = parseFloat(totalCostStr);
+  const sum = totalCostNumber + parseFloat(value);
   serInnerText("total-cost", sum);
 }
 
-function grandTotal(id, value) {
-  const totalCost = parseFloat(document.getElementById(id).innerText);
-  const sum = totalCost + parseFloat(value);
-  serInnerText("grand-total", sum);
+function grandTotal(category) {
+  const totalCostStr = document.getElementById("total-cost").innerText;
+  const totalCostNumber = parseFloat(totalCostStr);
+  if (category == "bus") {
+    serInnerText("grand-total", totalCostNumber + 100);
+  } else if (category == "train") {
+    serInnerText("grand-total", totalCostNumber - 200);
+  } else if (category == "flight") {
+    serInnerText("grand-total", totalCostNumber + 500);
+  } else {
+    serInnerText("grand-total", totalCostNumber);
+  }
 }
 
 function serInnerText(id, value) {
