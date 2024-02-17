@@ -17,6 +17,7 @@ for (const btn of allBtn) {
       alert("No budget, earn more!!!");
       return;
     }
+    event.target.setAttribute("disabled", true);
     document.getElementById("budget").innerText =
       budgetNumber - parseFloat(price);
     selectedPlaces.appendChild(p);
